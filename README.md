@@ -19,3 +19,5 @@
 >   - Added IP to atlas to fix handshake error
 > - Update .gitignore to remove .venv merge - 2026-09-16
 > - Added a dev branch for development stage - 2026-09-16
+> - Added a TestDatabaseServerConnection.py - 2026-09-16
+>   - For checking and seing if the servers are alive
