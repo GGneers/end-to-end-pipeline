@@ -21,3 +21,40 @@
 > - Added a dev branch for development stage - 2026-09-16
 > - Added a TestDatabaseServerConnection.py - 2026-09-16
 >   - For checking and seing if the servers are alive
+
+# Archicture Plan
+
+             ┌───────────────┐
+             │Data Generator │
+             └──────┬────────┘
+                    │
+                    ▼
+             ┌─────────────┐
+             │   FastAPI   │
+             └──────┬──────┘
+                    │
+                    │ INSERT/UPDATE
+                    ▼
+             ┌─────────────┐
+             │     MYSQL   │ -----> Dedup in Mongodb and Postgres
+             └──────┬──────┘
+                    │
+                   WAL
+                    │
+                    ▼
+             ┌─────────────┐
+             │  Debezium   │
+             │     CDC     │
+             └──────┬──────┘
+                    │
+                    ▼
+             ┌─────────────┐
+             │    Kafka    │
+             └──────┬──────┘
+                    │
+          ┌─────────┼─────────┐
+          ▼         ▼         ▼
+        Spark      NiFi      Other
+          │
+          ▼
+         S3
