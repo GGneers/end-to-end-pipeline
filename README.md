@@ -21,7 +21,7 @@
 > - Added a dev branch for development stage - 2026-09-16
 > - Added a TestDatabaseServerConnection.py - 2026-09-16
 >   - For checking and seing if the servers are alive
-
+> - Added a sample API script - 2026-09-22
 # Archicture Plan
 
              ┌───────────────┐
